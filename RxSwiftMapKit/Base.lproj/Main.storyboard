@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ftk-Ze-1wt">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--RxSwift MapKit-->
+        <scene sceneID="dJU-X1-rZE">
+            <objects>
+                <tableViewController id="Sm1-P6-XTm" customClass="ViewController" customModule="RxSwiftMapKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wKH-iT-azw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Type an address" id="cpP-jJ-jul">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Sm1-P6-XTm" id="jT2-Y3-evZ"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressCell" textLabel="LcS-ON-jmF" style="IBUITableViewCellStyleDefault" id="1Zc-v7-XOs">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Zc-v7-XOs" id="G8U-g3-Bhg">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LcS-ON-jmF">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="1pQ-a6-SOo" kind="show" identifier="OpenMap" id="glv-kd-gg7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Sm1-P6-XTm" id="9J2-6R-Ob4"/>
+                            <outlet property="delegate" destination="Sm1-P6-XTm" id="aYD-UD-5DU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="RxSwift MapKit" id="tnD-Fd-rxj"/>
+                    <connections>
+                        <outlet property="searchBar" destination="cpP-jJ-jul" id="0y8-V7-joj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qdq-Mn-qfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="714" y="-2096"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="ZSL-mA-PVn">
+            <objects>
+                <viewController id="1pQ-a6-SOo" customClass="MapViewController" customModule="RxSwiftMapKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h51-DZ-9lj"/>
+                        <viewControllerLayoutGuide type="bottom" id="CkO-rI-P0H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tWx-iP-2k0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7MI-FF-G5q">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1pQ-a6-SOo" id="2sO-wj-1j5"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7MI-FF-G5q" secondAttribute="trailing" id="227-OR-ibl"/>
+                            <constraint firstItem="7MI-FF-G5q" firstAttribute="bottom" secondItem="CkO-rI-P0H" secondAttribute="top" id="9Ni-dh-6K5"/>
+                            <constraint firstItem="7MI-FF-G5q" firstAttribute="leading" secondItem="tWx-iP-2k0" secondAttribute="leading" id="B6R-Bz-s1k"/>
+                            <constraint firstItem="7MI-FF-G5q" firstAttribute="top" secondItem="tWx-iP-2k0" secondAttribute="top" id="LVa-5g-Xjf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kr4-e2-1kG"/>
+                    <connections>
+                        <outlet property="mapView" destination="7MI-FF-G5q" id="Xln-e9-5qI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAK-82-qzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1474" y="-2096"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="T2i-op-Cue">
+            <objects>
+                <navigationController id="ftk-Ze-1wt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uFm-yV-zlG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="ftk-Ze-1wt" id="m8Y-FJ-6Uk"/>
+                        </connections>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Sm1-P6-XTm" kind="relationship" relationship="rootViewController" id="SDA-He-QQr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Avt-rU-ptI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-106" y="-2096"/>
+        </scene>
+    </scenes>
+</document>

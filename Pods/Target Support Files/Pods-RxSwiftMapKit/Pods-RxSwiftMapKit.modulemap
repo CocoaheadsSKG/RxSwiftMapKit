@@ -1,0 +1,6 @@
+framework module Pods_RxSwiftMapKit {
+  umbrella header "Pods-RxSwiftMapKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
